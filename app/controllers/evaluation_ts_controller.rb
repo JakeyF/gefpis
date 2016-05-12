@@ -1,5 +1,5 @@
 class EvaluationTsController < ApplicationController
-  before_action :set_evaluation_t, only: [:show, :edit, :update, :destroy]
+  before_action  :set_evaluation_t, only: [:show, :edit, :update, :destroy]
 
   # GET /evaluation_ts
   def index
@@ -13,6 +13,7 @@ class EvaluationTsController < ApplicationController
   # GET /evaluation_ts/new
   def new
     @evaluation_t = EvaluationT.new
+
   end
 
   # GET /evaluation_ts/1/edit
@@ -22,6 +23,7 @@ class EvaluationTsController < ApplicationController
   # POST /evaluation_ts
   def create
     @evaluation_t = EvaluationT.new(evaluation_t_params)
+    @evaluation_t.member_t = current_member_t #This allows name of member to be auto-associated
 
     if @evaluation_t.save
       redirect_to @evaluation_t, notice: 'Evaluation t was successfully created.'

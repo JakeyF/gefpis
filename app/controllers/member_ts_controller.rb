@@ -13,6 +13,16 @@ class MemberTsController < ApplicationController
     render 'member_ts/show'
   end
 
+  def destroy
+    @member_t = MemberT.find(params[:id])
+    @member_t.destroy
+
+    if @member_t.destroy
+      redirect_to member_ts_path, notice: "Member Deleted."
+    end
+  end
+
+
 
 
 

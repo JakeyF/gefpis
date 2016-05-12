@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Member Ts</h1>
-
+<%= link_to 'New Member t', new_member_t_registration_path %>
 <table>
   <thead>
     <tr>
@@ -39,7 +39,7 @@
         <td><%= member_t.year_course %></td>
         <td><%= member_t.scholarship %></td>
         <td><%= link_to 'Edit', edit_member_t_registration_path(member_t.id) %></td>
-        <td><%= link_to "Delete", member_t_registration_path(member_t.id), :confirm => "Are you sure?", :method => :delete %><td>
+        <td><%= link_to "Delete", destroy_member_t_path(member_t), confirm: "Are you sure?", :method => :delete %><td>
  
       </tr>
     <% end %>
@@ -48,4 +48,4 @@
 
 <br>
 
-<%= link_to 'New Member t', new_member_t_registration_path %>
+

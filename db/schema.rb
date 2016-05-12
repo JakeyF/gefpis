@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20160512092013) do
     t.datetime "updated_at",           null: false
   end
 
+  create_table "evaluations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "member_ts", force: :cascade do |t|
     t.string   "id_number"
     t.string   "first_name"
@@ -55,6 +65,11 @@ ActiveRecord::Schema.define(version: 20160512092013) do
   add_index "member_ts", ["email"], name: "index_member_ts_on_email", unique: true
   add_index "member_ts", ["reset_password_token"], name: "index_member_ts_on_reset_password_token", unique: true
 
+  create_table "members", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "module_ts", force: :cascade do |t|
     t.string   "file_name"
     t.string   "subject"
@@ -81,6 +96,11 @@ ActiveRecord::Schema.define(version: 20160512092013) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "tprs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tutee_ts", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -103,6 +123,11 @@ ActiveRecord::Schema.define(version: 20160512092013) do
     t.datetime "updated_at",        null: false
   end
 
+  create_table "tutees", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "worksheet_ts", force: :cascade do |t|
     t.integer  "module_t_id"
     t.integer  "member_t_id"
@@ -112,6 +137,11 @@ ActiveRecord::Schema.define(version: 20160512092013) do
     t.string   "reached_quota"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "worksheets", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -40,7 +40,8 @@
         <td><%= evaluation_t.eval_name %></td>
         </div>
         <div class="col s4">
-        <td><% t = MemberT.find(evaluation_t.member_t_id) %> <% t.first_name %> <% t.last_name %></td>
+
+        <td><%=evaluation_t.member_t.first_name %> <%=evaluation_t.member_t.first_name %></td>
         </div>
         <div class="col s4">
               <td><center><%= link_to 'Show', evaluation_t, :class => 'waves-effect waves-light btn btn-main-green' %>

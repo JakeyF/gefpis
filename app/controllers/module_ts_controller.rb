@@ -15,7 +15,7 @@ class ModuleTsController < ApplicationController
   # GET /module_ts/new
   def new
     @module_t = ModuleT.new
-    @module_t.update_attribute(:upload_date,DateTime.now)
+    @module_t.update_attribute(:upload_date,DateTime.now) #timestamp system
   end
 
   # GET /module_ts/1/edit
@@ -25,6 +25,7 @@ class ModuleTsController < ApplicationController
   # POST /module_ts
   def create
     @module_t = ModuleT.new(module_t_params)
+    @module_t.member_t = current_member_t #This allows name of member to be auto-associated
 
     if @module_t.save
       redirect_to @module_t, notice: 'Module t was successfully created.'

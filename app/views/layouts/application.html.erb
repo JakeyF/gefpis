@@ -19,61 +19,64 @@
 
 
   
-  <!--navbar-dropdown-->   
+  <!--navbar-dropdown--> 
+   <ul id="dropdown1" class="dropdown-content">
+      <li><%= link_to "Log Out", destroy_member_t_session_path, :method => :delete, class: 'main-green-text'%></li>
+    </ul>  
     <ul id="dropdown2" class="dropdown-content">
-      <li><a href="#!">Tutee Profiles</a></li>
+      <li><%= link_to "Tutees", tutee_ts_path(), class: 'main-green-text'%></li>
       <li class="divider"></li>
       <li><a href="#!">Progress Reports</a></li>
     </ul>
-    <ul id="dropdown3" class="dropdown-content">
-      <li><a href="#!">Administrator</a></li>
-      <li class="divider"></li>
-      <li><a href="#!">Data Analysis Team</a></li>
-      <li class="divider"></li>
-      <li><a href="#!">Modules Team</a></li>
-      <li class="divider"></li>
-      <li><a href="#!">Tutors</a></li>
-    </ul>
-    <% if member_t_signed_in?%>
-    <ul id="dropdown4" class="dropdown-content">
-      <li><a href="#!"><%= link_to "Logout", destroy_member_t_session_path, method: :delete, :class => 'navbar-link'  %></a></li>
-      <li class="divider"></li>
-      <li><a href="#!">B</a></li>
-    </ul>
-    <%end%>
   
     <!--navbar-->
     <nav>
       <div class="nav-wrapper main-white">
           <ul id="nav-mobile" class="left hide-on-med-and-down open-sans">
             <li><%= image_tag("gabay-tbs-logo-white.png", height: '64', class: 'main-green')%></li>
-            <li><%= link_to "Modules", module_ts_path(), class: 'main-green-text'%></li>
-            <li><a href="#" class="main-green-text"><font size="4">&nbsp;Evaluations&nbsp;</font></a></li>
-            <li><a class="dropdown-button main-green-text" href="#!" data-activates="dropdown2" data-beloworigin="true"><font size="4">&nbsp;Tutees</font><i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><%= link_to "Members", member_ts_path(), class: 'main-green-text'%></li>              
-          </ul>
 
           <% if member_t_signed_in?%>
+
+          <%if current_member_t.membership == "Administration"%> <!--ACCESSIBILITY IF ADMIN-->
+            <li><%= link_to "Modules", module_ts_path(), class: 'main-green-text'%></li>
+            <li><%= link_to "Evaluations", evaluation_ts_path(), class: 'main-green-text'%></li>
+            <li><a class="dropdown-button main-green-text" href="#!" data-activates="dropdown2" data-beloworigin="true"><font size="4">&nbsp;Tutees</font><i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><%= link_to "Members", member_ts_path(), class: 'main-green-text'%></li>  
+          </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down open-sans">
             <li>
                 <label for="search"><i class="material-icons">search</i></label>
             </li>
-            <li>              
-                <input id="search" type="search" required>  
-              </li>
-            <li><a class="dropdown-button main-green-text" href="#!" data-activates="dropdown4" data-beloworigin="true"><font size="4">&nbsp;[Admin] Jakey Fausto</font><i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><input id="search" type="search" required></li>
+
+            <%elsif current_member_t.membership == "Tutors"%> <!--ACCESSIBILITY IF TUTOR-->
+            <ul id="nav-mobile" class="left hide-on-med-and-down open-sans">
+            <li><%= image_tag("gabay-tbs-logo-white.png", height: '64', class: 'main-green')%></li>
+            <li><%= link_to "Modules", module_ts_path(), class: 'main-green-text'%></li>
+            <li><%= link_to "Evaluations", evaluation_ts_path(), class: 'main-green-text'%></li>
+            <li><a class="dropdown-button main-green-text" href="#!" data-activates="dropdown2" data-beloworigin="true"><font size="4">&nbsp;Tutees</font><i class="material-icons right">arrow_drop_down</i></a></li>
           </ul>
+          <ul id="nav-mobile" class="right hide-on-med-and-down open-sans">
+            <li>
+                <label for="search"><i class="material-icons">search</i></label>
+            </li>
+            <li><input id="search" type="search" required></li>
+
+            <%end%> 
+
+            <li><a class="dropdown-button main-green-text" href="#!" data-activates="dropdown1" data-below-origin="true"><%= current_member_t.first_name%><i class="material-icons right">arrow_drop_down</i></a></li>
+          </ul>
+
           <%else%>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><%= link_to "Log in", new_member_t_session_path, class: 'main-green-text'%></li>
           </ul>
+
           <%end%>
       </div>
     </nav>
-    
 
-
-<body class="main-white">
+    <body class="main-white">
 <%= yield %>
 </body>
 

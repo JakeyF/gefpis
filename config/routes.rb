@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :member_ts, controllers: {
     registrations: 'member_ts/registrations'
   }
+  match 'member_t/:id' => 'member_ts#destroy', :via => :delete, :as => :destroy_member_t
   resources :worksheet_ts
   resources :evaluation_ts
   resources :tpr_ts

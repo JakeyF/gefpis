@@ -6,5 +6,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(member_t)
   member_ts_path(@member_t)
   end
+  def after_sign_out_path_for(member_t)
+  root_path
+  end
 
 end
