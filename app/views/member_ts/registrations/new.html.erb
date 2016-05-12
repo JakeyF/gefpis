@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+
+  <body class="main-white">
+
+
+
+    <!--header-->  
+    <div class="col s12">
+      <center>
+        <br>
+        <br>
+        <a class="main-green-text crete-round"><font size="6">Sign Up</font></a>  
+        <br>
+        <%=image_tag("line3.png" , height:'55')%>
+        <br>
+      </center>
+    </div>
+
+
+
+<div class="row">
+  <div class="container">
+
+
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+
+  <div class="form-inputs">
+    <div class="row">
+    <div class="input-field col s6">  
+  	<%= f.input :id_number, required: false, autofocus: true, label: 'ID Number' %>
+    </div>
+    <div class="input-field col s6">  
+      <%= f.input :year_course, required: false, autofocus: true %>
+    </div>
+  </div>
+    <div class="row">
+    <div class="input-field col s5">
+      <%= f.input :first_name, required: false, autofocus: true, label: 'First Name' %>
+    </div>
+    <div class="input-field col s5">
+      <%= f.input :last_name, required: false, autofocus: true, label: 'Last Name' %>
+    </div>
+    <div class="input-field col s2">
+      <%= f.input :middle_initial, required: false, autofocus: true %>
+    </div>
+    </div>
+  	<div class="row">
+    <div class="input-field col s6">
+      <%= f.input :contact_no, required: false, autofocus: true, label: 'Contact Number' %>
+    </div>
+    </div>
+  	<div class="row">
+    <div class="input-field col s4">
+      <%= f.input :membership, required: false, autofocus: true, collection: ['Administration', 'Data Analysis', 'Modules', 'Tutors'] %>
+    </div>
+    <div class="input-field col s4">
+        <%= f.input :committee, required: false, autofocus: true, collection: ['EdOp', 'EdForm', 'SA', 'Acad'] %>
+    </div>
+    <div class="input-field col s4">
+        <%= f.input :scholarship, required: false, autofocus: true, collection: ['Financial Aid', 'Academic' ] %>
+    
+    </div>
+    </div>
+  </div>
+    <%= f.input :email, required: true, autofocus: true, label: 'E-mail Address' %>
+    <%= f.input :password, required: true, label: 'Password' %>
+    <%= f.input :password_confirmation, required: true, label: 'Re-enter Password' %>
+
+
+  
+
+  <div class="form-actions">
+    <%= f.submit :Save, class: 'btn btn-main-green pull-right' %>
+  </div>
+    </div>
+</div>
+<% end %>
+
+<%= render "member_ts/shared/links" %>

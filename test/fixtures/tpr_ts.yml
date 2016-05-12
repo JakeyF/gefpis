@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  week_no: MyString
+  school: MyString
+  tutee_t_id: 1
+  strengths: MyString
+  weaknesses: MyString
+  actions: MyString
+  module_t_id: 1
+  member_t_id: 1
+
+two:
+  week_no: MyString
+  school: MyString
+  tutee_t_id: 1
+  strengths: MyString
+  weaknesses: MyString
+  actions: MyString
+  module_t_id: 1
+  member_t_id: 1

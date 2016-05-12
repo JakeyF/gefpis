@@ -1,0 +1,66 @@
+<body class="main-white">
+<p id="notice"><%= notice %></p>
+
+<div class="col s12">
+    <center>
+      <br>
+      <br>
+      <a class="main-green-text crete-round"><font size="6">Evaluations</font></a>
+      <br>
+      <%=image_tag("/assets/line3.png" , height:'55')%>
+      <br>
+      <br>
+      <%= link_to 'Create Evaluation', new_evaluation_t_path, :class => 'waves-effect waves-light btn btn-main-green'  %>
+      <br>
+      <br>
+    </center>
+  </div>
+
+<!--table-->
+  <div class="container">
+    <div class="row">
+    <table class="bordered">
+      <thead class="table-header crete-round">
+        <tr>
+          <div class="col s4">
+          <th data-field="name">Evaluation Name</th>
+          </div>
+          <div class="col s4">
+          <th data-field="subject">Created By</th>
+          </div>
+          <div class="col s4">
+          <th data-field="actions"><center>Actions</center></th>
+          </div>
+        </tr>
+      </thead>
+      <tbody>
+    <% @evaluation_ts.each do |evaluation_t| %>
+      <tr>
+        <div class="col s4">
+        <td><%= evaluation_t.eval_name %></td>
+        </div>
+        <div class="col s4">
+        <td><% t = MemberT.find(evaluation_t.member_t_id) %> <% t.first_name %> <% t.last_name %></td>
+        </div>
+        <div class="col s4">
+              <td><center><%= link_to 'Show', evaluation_t, :class => 'waves-effect waves-light btn btn-main-green' %>
+              <%= link_to 'Edit', edit_evaluation_t_path(evaluation_t), :class => 'waves-effect waves-light btn btn-main-green' %>
+              <%= link_to 'Destroy', evaluation_t, method: :delete, :class => 'waves-effect waves-light btn btn-main-green', data: { confirm: 'Are you sure?' } %></center></td>
+            </div>
+        </tr>
+
+
+
+        <% end %>
+      </tbody>
+    </table>
+
+
+
+    
+  </div>
+</div>
+</body>
+
+
+

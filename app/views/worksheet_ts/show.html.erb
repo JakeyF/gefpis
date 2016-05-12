@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Module t:</strong>
+  <%= @worksheet_t.module_t_id %>
+</p>
+
+<p>
+  <strong>Member t:</strong>
+  <%= @worksheet_t.member_t_id %>
+</p>
+
+<p>
+  <strong>Tutee t:</strong>
+  <%= @worksheet_t.tutee_t_id %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @worksheet_t.school %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @worksheet_t.score %>
+</p>
+
+<p>
+  <strong>Reached quota:</strong>
+  <%= @worksheet_t.reached_quota %>
+</p>
+
+<%= link_to 'Edit', edit_worksheet_t_path(@worksheet_t) %> |
+<%= link_to 'Back', worksheet_ts_path %>

@@ -11,128 +11,107 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160504164314) do
+ActiveRecord::Schema.define(version: 20160512092013) do
 
-  create_table "evaluation_t", primary_key: "eval_id", force: :cascade do |t|
-    t.string  "eval_name",            limit: 15,  null: false
-    t.integer "id_number",            limit: 4,   null: false
-    t.string  "tutoring_comments",    limit: 100, null: false
-    t.string  "math_module_comments", limit: 100, null: false
-    t.string  "math_sw_comments",     limit: 100, null: false
-    t.string  "eng_comments",         limit: 100, null: false
-    t.string  "eng_sw_comments",      limit: 100, null: false
-    t.string  "suggestions",          limit: 100, null: false
+  create_table "evaluation_ts", force: :cascade do |t|
+    t.string   "eval_name"
+    t.integer  "member_t_id"
+    t.string   "tutoring_comments"
+    t.string   "math_module_comments"
+    t.string   "math_sw_comments"
+    t.string   "eng_comments"
+    t.string   "eng_sw_comments"
+    t.string   "suggestions"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
-  add_index "evaluation_t", ["id_number"], name: "evaluation_fk", using: :btree
-
-  create_table "evaluations", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "member_ts", force: :cascade do |t|
+    t.string   "id_number"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "middle_initial"
+    t.integer  "contact_no"
+    t.date     "attendance"
+    t.string   "committee"
+    t.date     "birthday"
+    t.string   "year_course"
+    t.string   "scholarship"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "membership"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
 
-  create_table "lessons", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  add_index "member_ts", ["email"], name: "index_member_ts_on_email", unique: true
+  add_index "member_ts", ["reset_password_token"], name: "index_member_ts_on_reset_password_token", unique: true
+
+  create_table "module_ts", force: :cascade do |t|
+    t.string   "file_name"
+    t.string   "subject"
+    t.datetime "upload_date"
+    t.string   "topic"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "member_t_id"
   end
 
-  create_table "member_t", primary_key: "id_number", force: :cascade do |t|
-    t.string  "password",       limit: 15, null: false
-    t.string  "first_name",     limit: 15, null: false
-    t.string  "last_name",      limit: 15, null: false
-    t.string  "middle_initial", limit: 2
-    t.string  "email_address",  limit: 30, null: false
-    t.integer "contact_no",     limit: 4,  null: false
-    t.date    "attendance",                null: false
-    t.string  "type",           limit: 15
-    t.string  "committee",      limit: 15
-    t.date    "birthday",                  null: false
-    t.string  "year_course",    limit: 12, null: false
-    t.string  "scholarship",    limit: 15
+  create_table "tpr_ts", force: :cascade do |t|
+    t.string   "week_no"
+    t.integer  "tutee_t_id"
+    t.string   "strengths"
+    t.string   "weaknesses"
+    t.string   "actions"
+    t.integer  "module_t_id"
+    t.integer  "member_t_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "members", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "tutee_ts", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "school"
+    t.integer  "math_grade"
+    t.integer  "eng_grade"
+    t.string   "father_name"
+    t.string   "father_occupation"
+    t.string   "mother_name"
+    t.string   "mother_occupation"
+    t.string   "ambition"
+    t.string   "fav_subject"
+    t.string   "fav_food"
+    t.string   "fav_color"
+    t.string   "fav_movie"
+    t.date     "attendance"
+    t.integer  "module_t_id"
+    t.integer  "group_no"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
-  create_table "module_t", primary_key: "file_number", force: :cascade do |t|
-    t.string "file_name",   limit: 20, null: false
-    t.string "subject",     limit: 20
-    t.date   "upload_date",            null: false
-    t.string "topic",       limit: 20, null: false
-    t.string "uploader",    limit: 30, null: false
+  create_table "worksheet_ts", force: :cascade do |t|
+    t.integer  "module_t_id"
+    t.integer  "member_t_id"
+    t.integer  "tutee_t_id"
+    t.string   "school"
+    t.integer  "score"
+    t.string   "reached_quota"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
-  create_table "tpr_t", primary_key: "tpr_id", force: :cascade do |t|
-    t.integer "week_no",     limit: 4,   null: false
-    t.string  "school",      limit: 35,  null: false
-    t.integer "file_number", limit: 4,   null: false
-    t.integer "id_number",   limit: 4,   null: false
-    t.integer "tutee_id",    limit: 4,   null: false
-    t.string  "strengths",   limit: 20,  null: false
-    t.string  "weaknesses",  limit: 20,  null: false
-    t.string  "actions",     limit: 100, null: false
-  end
-
-  add_index "tpr_t", ["file_number"], name: "tpr_fk1", using: :btree
-  add_index "tpr_t", ["id_number"], name: "tpr_fk2", using: :btree
-  add_index "tpr_t", ["tutee_id"], name: "tpr_fk3", using: :btree
-
-  create_table "tprs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tutee_t", primary_key: "tutee_id", force: :cascade do |t|
-    t.string  "first_name",        limit: 15, null: false
-    t.string  "last_name",         limit: 15, null: false
-    t.string  "school",            limit: 35, null: false
-    t.integer "math_grade",        limit: 4
-    t.integer "eng_grade",         limit: 4
-    t.string  "address",           limit: 30
-    t.string  "father_name",       limit: 30
-    t.string  "father_occupation", limit: 10
-    t.string  "mother_name",       limit: 30
-    t.string  "mother_occupation", limit: 10
-    t.string  "ambition",          limit: 15
-    t.string  "fav_subject",       limit: 10
-    t.string  "fav_food",          limit: 8
-    t.string  "fav_color",         limit: 10
-    t.string  "fav_movie",         limit: 10
-    t.date    "attendance"
-    t.string  "current_module",    limit: 20
-    t.integer "group_no",          limit: 4,  null: false
-  end
-
-  create_table "tutees", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "worksheet_t", primary_key: "worksheet_id", force: :cascade do |t|
-    t.integer "file_number",   limit: 4,  null: false
-    t.integer "id_number",     limit: 4,  null: false
-    t.integer "tutee_id",      limit: 4,  null: false
-    t.string  "school",        limit: 35, null: false
-    t.integer "score",         limit: 4,  null: false
-    t.string  "reached_quota", limit: 1,  null: false
-  end
-
-  add_index "worksheet_t", ["file_number"], name: "worksheet_fk1", using: :btree
-  add_index "worksheet_t", ["id_number"], name: "worksheet_fk2", using: :btree
-  add_index "worksheet_t", ["tutee_id"], name: "worksheet_fk3", using: :btree
-
-  create_table "worksheets", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_foreign_key "evaluation_t", "member_t", column: "id_number", primary_key: "id_number", name: "evaluation_fk"
-  add_foreign_key "tpr_t", "member_t", column: "id_number", primary_key: "id_number", name: "tpr_fk2"
-  add_foreign_key "tpr_t", "module_t", column: "file_number", primary_key: "file_number", name: "tpr_fk1"
-  add_foreign_key "tpr_t", "tutee_t", column: "tutee_id", primary_key: "tutee_id", name: "tpr_fk3"
-  add_foreign_key "worksheet_t", "member_t", column: "id_number", primary_key: "id_number", name: "worksheet_fk2"
-  add_foreign_key "worksheet_t", "module_t", column: "file_number", primary_key: "file_number", name: "worksheet_fk1"
-  add_foreign_key "worksheet_t", "tutee_t", column: "tutee_id", primary_key: "tutee_id", name: "worksheet_fk3"
 end

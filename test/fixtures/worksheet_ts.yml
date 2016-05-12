@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  module_t_id: 1
+  member_t_id: 1
+  tutee_t_id: 1
+  school: MyString
+  score: 1
+  reached_quota: MyString
+
+two:
+  module_t_id: 1
+  member_t_id: 1
+  tutee_t_id: 1
+  school: MyString
+  score: 1
+  reached_quota: MyString

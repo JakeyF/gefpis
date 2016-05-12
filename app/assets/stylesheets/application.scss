@@ -1,0 +1,51 @@
+@import "materialize";
+@import "materialize/extras/nouislider";
+
+.crete-round {
+	font-family: 'Crete Round', serif;
+}
+
+.open-sans {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.main-green {
+	background-color: #028d67;
+}
+
+.main-green-text {
+	color: #028d67;
+	font-size: 14pt;
+}
+
+.main-white {
+	background-color: #f8f8f8 !important;
+}
+
+.main-white-text{
+	color: #f8f8f8;
+}
+
+.main-grey-text {
+	color: #292f2d;
+}
+
+.btn-main-green {
+	background-color: #028d67 !important;
+}
+.option_label_name{
+	margin-top:-28px;
+}
+.dateinput{
+	margin-top:15px;
+}
+.chicken_label_name{
+	color:transparent!important;
+}
+@media only screen and (max-width: 1338px) {
+
+.btn-main-green {
+    margin-top: 2px;
+}
+
+	}

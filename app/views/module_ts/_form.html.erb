@@ -1,0 +1,77 @@
+    
+    <div class="col s12">
+      <center>
+        <br>
+            <br>
+            <a class="main-green-text crete-round"><font size="6">Upload Module</font></a>
+            <br>
+            <%=image_tag("line3.png" , height:'55')%>
+            <br>
+        </center>
+    </div>
+
+
+
+
+
+
+
+  <div class="form-inputs">
+
+
+    <%= simple_form_for(@module_t) do |f| %>
+  <%= f.error_notification %>
+    <div class="row">
+        <div class="col s4 offset-s4">
+            <div class="card open-sans main-white">
+              <div class="card-content">
+                <div class="row">
+                      <div class="col s12">
+                        <form action="#">
+                          <div class="file-field input-field">
+                            <div class="btn">
+                              <span>Browse</span>
+                               <%= f.input :file, as: :file,:label_html => { :class => 'chicken_label_name' } %>
+                            </div>
+                            <div class="file-path-wrapper">
+                              <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                            </div>
+                          </div>
+                        </form>  
+                      </div>
+                      <div class="input-field col s12">
+                          <%= f.input :subject, collection: ['Math', 'English'] %>
+
+                      </div>
+                      <div class="input-field col s12">
+                              <%= f.input :topic %>
+                      </div>
+                      <div class="input-field col s12 dateinput">
+
+                              <%= f.input :upload_date,:label_html => { :class => 'option_label_name' } %>
+                      </div>
+                      <div class="input-field col s12">
+                              <%= f.association :member_t %>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col s12">
+                        <center>
+                        <div class="btn btn-main-green">
+                            <span>Back</span>
+                        </div>
+
+                        <%= f.submit :Upload, class: 'btn btn-main-green' %>
+                        </div>
+                      </center>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+  </div>
+<% end %>

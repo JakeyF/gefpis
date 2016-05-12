@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>File name:</strong>
+  <%= @module_t.file_file_name %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @module_t.subject %>
+</p>
+
+<p>
+  <strong>Upload date:</strong>
+  <%= @module_t.upload_date %>
+</p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @module_t.topic %>
+</p>
+
+
+
+
+
+<%= link_to 'Download', @module_t.file.url(:original, false) %>
+<%= link_to 'Edit', edit_module_t_path(@module_t) %> |
+<%= link_to 'Back', module_ts_path %>

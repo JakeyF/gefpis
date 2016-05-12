@@ -1,0 +1,24 @@
+<%= simple_form_for(@member_t) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :id_number %>
+    <%= f.input :password %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :middle_initial %>
+    <%= f.input :email_address %>
+    <%= f.input :contact_no %>
+    <%= f.input :attendance %>
+    <%= f.input :membership, collection: ['Administrator', 'Modules', 'Tutors', 'Data Analysis'] %>
+    <%= f.input :committee, collection: ['EdOp', 'SA', 'EdForm', 'Acad'] %>
+    <%= f.input :birthday %>
+    <%= f.input :year_course %>
+    <%= f.input :scholarship, collection: ['Financial Aid', 'Academic', 'Others'] %>
+    
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

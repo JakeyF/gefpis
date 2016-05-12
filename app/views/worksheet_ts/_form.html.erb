@@ -1,0 +1,16 @@
+<%= simple_form_for(@worksheet_t) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :module_t %>
+    <%= f.association :member_t %>
+    <%= f.association :tutee_t %>
+    <%= f.input :school %>
+    <%= f.input :score %>
+    <%= f.input :reached_quota %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

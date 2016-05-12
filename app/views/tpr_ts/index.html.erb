@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tpr Ts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Week no</th>
+      <th>Tutee t</th>
+      <th>Strengths</th>
+      <th>Weaknesses</th>
+      <th>Actions</th>
+      <th>Module t</th>
+      <th>Member t</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tpr_ts.each do |tpr_t| %>
+      <tr>
+        <td><%= tpr_t.week_no %></td>
+        <td><%= tpr_t.tutee_t_id %></td>
+        <td><%= tpr_t.strengths %></td>
+        <td><%= tpr_t.weaknesses %></td>
+        <td><%= tpr_t.actions %></td>
+        <td><%= tpr_t.module_t_id %></td>
+        <td><%= tpr_t.member_t_id %></td>
+        <td><%= link_to 'Show', tpr_t %></td>
+        <td><%= link_to 'Edit', edit_tpr_t_path(tpr_t) %></td>
+        <td><%= link_to 'Destroy', tpr_t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tpr t', new_tpr_t_path %>

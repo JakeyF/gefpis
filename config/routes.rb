@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
+
+   root to: 'member_ts#index'
+
+
+  devise_for :member_ts, controllers: {
+    registrations: 'member_ts/registrations'
+  }
+  resources :worksheet_ts
+  resources :evaluation_ts
+  resources :tpr_ts
+  resources :tutee_ts
+  resources :module_ts
+  resources :member_ts
   
-  root to: "pages#index"
-  get "/about", to: "pages#about", as: :about
-  resources :members
-  resources :tutees
-  resources :worksheets
-  resources :tprs
-  resources :lessons
-  resources :evaluations
+  get '/member_ts/index', to: 'member_ts#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  school: MyString
+  math_grade: 
+  eng_grade: 
+  father_name: MyString
+  father_occupation: MyString
+  mother_name: MyString
+  mother_occupation: MyString
+  ambition: MyString
+  fav_subject: MyString
+  fav_food: MyString
+  fav_color: MyString
+  fav_movie: MyString
+  attendance: 2016-05-10
+  module_t_id: 1
+  group_no: 1
+
+two:
+  first_name: MyString
+  last_name: MyString
+  school: MyString
+  math_grade: 
+  eng_grade: 
+  father_name: MyString
+  father_occupation: MyString
+  mother_name: MyString
+  mother_occupation: MyString
+  ambition: MyString
+  fav_subject: MyString
+  fav_food: MyString
+  fav_color: MyString
+  fav_movie: MyString
+  attendance: 2016-05-10
+  module_t_id: 1
+  group_no: 1

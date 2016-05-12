@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Eval name:</strong>
+  <%= @evaluation_t.eval_name %>
+</p>
+
+<p>
+  <strong>Member t:</strong>
+  <%= @evaluation_t.member_t_id %>
+</p>
+
+<p>
+  <strong>Tutoring comments:</strong>
+  <%= @evaluation_t.tutoring_comments %>
+</p>
+
+<p>
+  <strong>Math module comments:</strong>
+  <%= @evaluation_t.math_module_comments %>
+</p>
+
+<p>
+  <strong>Math sw comments:</strong>
+  <%= @evaluation_t.math_sw_comments %>
+</p>
+
+<p>
+  <strong>Eng comments:</strong>
+  <%= @evaluation_t.eng_comments %>
+</p>
+
+<p>
+  <strong>Eng sw comments:</strong>
+  <%= @evaluation_t.eng_sw_comments %>
+</p>
+
+<p>
+  <strong>Suggestions:</strong>
+  <%= @evaluation_t.suggestions %>
+</p>
+
+<%= link_to 'Edit', edit_evaluation_t_path(@evaluation_t) %> |
+<%= link_to 'Back', evaluation_ts_path %>

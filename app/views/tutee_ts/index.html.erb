@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tutee Ts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>School</th>
+      <th>Math grade</th>
+      <th>Eng grade</th>
+      <th>Father name</th>
+      <th>Father occupation</th>
+      <th>Mother name</th>
+      <th>Mother occupation</th>
+      <th>Ambition</th>
+      <th>Fav subject</th>
+      <th>Fav food</th>
+      <th>Fav color</th>
+      <th>Fav movie</th>
+      <th>Attendance</th>
+      <th>Module t</th>
+      <th>Group no</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tutee_ts.each do |tutee_t| %>
+      <tr>
+        <td><%= tutee_t.first_name %></td>
+        <td><%= tutee_t.last_name %></td>
+        <td><%= tutee_t.school %></td>
+        <td><%= tutee_t.math_grade %></td>
+        <td><%= tutee_t.eng_grade %></td>
+        <td><%= tutee_t.father_name %></td>
+        <td><%= tutee_t.father_occupation %></td>
+        <td><%= tutee_t.mother_name %></td>
+        <td><%= tutee_t.mother_occupation %></td>
+        <td><%= tutee_t.ambition %></td>
+        <td><%= tutee_t.fav_subject %></td>
+        <td><%= tutee_t.fav_food %></td>
+        <td><%= tutee_t.fav_color %></td>
+        <td><%= tutee_t.fav_movie %></td>
+        <td><%= tutee_t.attendance %></td>
+        <td><%= tutee_t.module_t_id %></td>
+        <td><%= tutee_t.group_no %></td>
+        <td><%= link_to 'Show', tutee_t %></td>
+        <td><%= link_to 'Edit', edit_tutee_t_path(tutee_t) %></td>
+        <td><%= link_to 'Destroy', tutee_t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tutee t', new_tutee_t_path %>

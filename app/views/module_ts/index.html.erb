@@ -1,0 +1,76 @@
+<body class="main-white">
+<p id="notice"><%= notice %></p>
+
+ <div class="col s12">
+    <center>
+      <br>
+      <br>
+      <a class="main-green-text crete-round"><font size="6">Modules</font></a>
+      <br>
+      <%=image_tag("/assets/line3.png" , height:'55')%>
+      <br>
+      <br>
+      <%= link_to 'Create Module', new_module_t_path, :class => 'waves-effect waves-light btn btn-main-green' %>
+      <br>
+      <br>
+    </center>
+  </div>
+
+  <div class="container">
+    <div class="row">
+    <table class="bordered">
+      <thead class="table-header crete-round">
+        <tr>
+          <div class="col s2">
+            <th data-field="name">File Name</th>
+          </div>
+          <div class="col s2">
+          <th data-field="subject">Subject</th>
+          </div>
+          <div class="col s2">
+          <th data-field="datetime">Date Uploaded</th>
+          </div>
+          <div class="col s2">
+          <th data-field="datetime">Topic</th>
+          </div>
+          <!--<th data-field="uploaded">Uploaded By</th>-->
+          <div class="col s4">
+          <th data-field="actions"><center>Actions</center></th>
+          </div>
+        </tr>
+      </thead>
+      <tbody class="open-sans">
+    <% @module_ts.each do |module_t| %>
+      <tr>
+        <div class="col s2">
+         <td><%= module_t.file_file_name %></td>
+        </div>
+        <div class="col s2">
+        <td><%= module_t.subject %></td>
+        </div>
+        <div class="col s2">
+        <td><%= module_t.upload_date %></td>
+        </div>
+        <div class="col s2">
+        <td><%= module_t.topic %></td> 
+        </div>
+        <div class="col s4">         
+        <td><center><%= link_to 'Show', module_t, :class => 'waves-effect waves-light btn btn-main-green' %>
+        <%= link_to 'Edit', edit_module_t_path(module_t), :class => 'waves-effect waves-light btn btn-main-green' %>
+        <%= link_to 'Destroy', module_t, method: :delete, :class => 'waves-effect waves-light btn btn-main-green', data: { confirm: 'Are you sure?' } %></center></td>
+          </td>
+          </div>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+<br>
+</body>
+
