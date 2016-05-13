@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-   root to: 'member_ts#index'
+   root to: 'evaluation_ts#index'
 
 
   devise_for :member_ts, controllers: {

@@ -8,11 +8,13 @@
       <a class="main-green-text crete-round"><font size="6">Evaluations</font></a>
       <br>
       <%=image_tag("/assets/line3.png" , height:'55')%>
+      <%if member_t_signed_in? %>
       <br>
       <br>
       <%= link_to 'Create Evaluation', new_evaluation_t_path, :class => 'waves-effect waves-light btn btn-main-green'  %>
       <br>
       <br>
+      <%end%>
     </center>
   </div>
 
@@ -36,7 +38,9 @@
           </div>
         </tr>
       </thead>
-      <tbody>
+    
+    <tbody>
+    <%if member_t_signed_in? %>
     <% @evaluation_ts.each do |evaluation_t| %>
       <tr>
         <div class="col s3">
@@ -53,11 +57,18 @@
               <%= link_to 'Edit', edit_evaluation_t_path(evaluation_t), :class => 'waves-effect waves-light btn btn-main-green' %>
               <%= link_to 'Delete', evaluation_t, method: :delete, :class => 'waves-effect waves-light btn btn-main-green', data: { confirm: 'Are you sure?' } %></center></td>
             </div>
-        </tr>
+      </tr>
+      <% end %>
+    <%else%>
+    <center>
+    <div class="col s3">
+      
+          <td>You must be signed in to view</td>
+      
+   </div>
+   </center>
+    <%end%>
 
-
-
-        <% end %>
       </tbody>
     </table>
 

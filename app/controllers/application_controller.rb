@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(member_t)
-  member_ts_path(@member_t)
+  evaluation_ts_path(@evaluation_t)
   end
   def after_sign_out_path_for(member_t)
   root_path
