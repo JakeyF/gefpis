@@ -36,8 +36,10 @@
         <td><%= member_t.birthday %></td>
         <td><%= member_t.year_course %></td>
         <td><%= member_t.scholarship %></td>
+        <%if current_member_t == member_t or current_member_t.membership == "Administration" %>
         <td><%= link_to 'Edit', edit_member_t_registration_path(member_t.id) %></td>
         <td><%= link_to "Delete", destroy_member_t_path(member_t), confirm: "Are you sure?", :method => :delete %><td>
+        <%end%>
  
       </tr>
     <% end %>

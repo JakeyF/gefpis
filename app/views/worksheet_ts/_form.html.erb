@@ -2,12 +2,11 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :module_t %>
-    <%= f.association :member_t %>
-    <%= f.association :tutee_t %>
+    <%= f.association :module_t, label: "Module Checked", label_method: :topic %>
+    <%= f.association :tutee_t, label: "Tutee of checked module", label_method: :last_name %>
     <%= f.input :school %>
     <%= f.input :score %>
-    <%= f.input :reached_quota %>
+    <%= f.input :reached_quota, collection: ["Yes", "No"]%>
   </div>
 
   <div class="form-actions">

@@ -26,7 +26,7 @@
     <ul id="dropdown2" class="dropdown-content">
       <li><%= link_to "Tutees", tutee_ts_path(), class: 'main-green-text'%></li>
       <li class="divider"></li>
-      <li><a href="#!">Progress Reports</a></li>
+      <li><%= link_to "Progress Reports", tpr_ts_path(), class: 'main-green-text'%></li>
     </ul>
   
     <!--navbar-->
@@ -41,7 +41,8 @@
             <li><%= link_to "Modules", module_ts_path(), class: 'main-green-text'%></li>
             <li><%= link_to "Evaluations", evaluation_ts_path(), class: 'main-green-text'%></li>
             <li><a class="dropdown-button main-green-text" href="#!" data-activates="dropdown2" data-beloworigin="true"><font size="5">&nbsp;Tutees</font><i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><%= link_to "Members", member_ts_path(), class: 'main-green-text'%></li>  
+            <li><%= link_to "Members", member_ts_path(), class: 'main-green-text'%></li>
+            <li><%= link_to "Worksheet", worksheet_ts_path, class: 'main-green-text'%></li>  
           </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down open-sans">
             <li>

@@ -54,8 +54,10 @@
         </div>
         <div class="col s3">
               <td><center><%= link_to 'Show', evaluation_t, :class => 'waves-effect waves-light btn btn-main-green' %>
+              <%if current_member_t == evaluation_t.member_t or current_member_t.membership == "Administration" %>
               <%= link_to 'Edit', edit_evaluation_t_path(evaluation_t), :class => 'waves-effect waves-light btn btn-main-green' %>
               <%= link_to 'Delete', evaluation_t, method: :delete, :class => 'waves-effect waves-light btn btn-main-green', data: { confirm: 'Are you sure?' } %></center></td>
+              <%end%>
             </div>
       </tr>
       <% end %>
