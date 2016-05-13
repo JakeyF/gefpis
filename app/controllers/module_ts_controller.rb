@@ -15,7 +15,6 @@ class ModuleTsController < ApplicationController
   # GET /module_ts/new
   def new
     @module_t = ModuleT.new
-    @module_t.update_attribute(:upload_date,DateTime.now) #timestamp system
   end
 
   # GET /module_ts/1/edit
@@ -26,9 +25,10 @@ class ModuleTsController < ApplicationController
   def create
     @module_t = ModuleT.new(module_t_params)
     @module_t.member_t = current_member_t #This allows name of member to be auto-associated
+    @module_t.update_attribute(:upload_date,DateTime.now) #timestamp system
 
     if @module_t.save
-      redirect_to @module_t, notice: 'Module t was successfully created.'
+      redirect_to @module_t, notice: 'Module was successfully created.'
     else
       render :new
     end
@@ -37,7 +37,9 @@ class ModuleTsController < ApplicationController
   # PATCH/PUT /module_ts/1
   def update
     if @module_t.update(module_t_params)
-      redirect_to @module_t, notice: 'Module t was successfully updated.'
+      redirect_to @module_t, notice: 'Module was successfully updated.'
+      @module_t.update_attribute(:upload_date,DateTime.now) #timestamp system
+      @module_t.member_t = current_member_t
     else
       render :edit
     end
@@ -46,7 +48,7 @@ class ModuleTsController < ApplicationController
   # DELETE /module_ts/1
   def destroy
     @module_t.destroy
-    redirect_to module_ts_url, notice: 'Module t was successfully destroyed.'
+    redirect_to module_ts_url, notice: 'Module was successfully destroyed.'
   end
 
   private

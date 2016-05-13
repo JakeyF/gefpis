@@ -13,7 +13,6 @@ class EvaluationTsController < ApplicationController
   # GET /evaluation_ts/new
   def new
     @evaluation_t = EvaluationT.new
-
   end
 
   # GET /evaluation_ts/1/edit
@@ -24,6 +23,7 @@ class EvaluationTsController < ApplicationController
   def create
     @evaluation_t = EvaluationT.new(evaluation_t_params)
     @evaluation_t.member_t = current_member_t #This allows name of member to be auto-associated
+    @evaluation_t.update_attribute(:evaldatetime, DateTime.now) #timestamp system
 
     if @evaluation_t.save
       redirect_to @evaluation_t, notice: 'Evaluation t was successfully created.'
@@ -36,6 +36,7 @@ class EvaluationTsController < ApplicationController
   def update
     if @evaluation_t.update(evaluation_t_params)
       redirect_to @evaluation_t, notice: 'Evaluation t was successfully updated.'
+      @evaluation_t.update_attribute(:evaldatetime, DateTime.now) #timestamp system
     else
       render :edit
     end

@@ -1,4 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+
+
+
+
+
+
+  <body class="main-white">
 
     <!--header-->  
     <div class="col s12">
@@ -40,7 +59,7 @@
               <span class="card-title activator main-green-text">MATH MODULES<i class="material-icons right">more_vert</i></span>
                 <div class="row">
                   <div class="input-field col s12">
-                    <%= f.input :math_module_comments, labe: 'amusta ang Math module ng kid mo ngayong week?' %>
+                    <%= f.input :math_module_comments, label: 'Kamusta ang Math module ng kid mo ngayong week?' %>
                   </div>
                 </div>
                 <div class="row">
@@ -117,14 +136,14 @@
 
             </div>
           </div>
-        </center> 
-      <div class="col s12 offset-s8">
+        </center> <BR>
+      <CENTER><div class="col s12 offset-s8 open-sans">
         <span><%= f.submit :Save, class: 'btn btn-main-green' %></span>
-        <% end %>   
-        <div class="btn btn-main-green">
-          <span>Cancel</span>
-        </div>
-  </div>
+         <%= link_to 'Cancel', evaluation_ts_path, :class => 'waves-effect waves-light btn btn-main-green' %><BR>
 
-<%= link_to 'Show', @evaluation_t %> |
-<%= link_to 'Back', evaluation_ts_path %>
+
+        <% end %>   
+  </div>
+</CENTER>
+</body>
+</HTML>

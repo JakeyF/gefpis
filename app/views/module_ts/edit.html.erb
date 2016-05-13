@@ -43,9 +43,9 @@
                   </div>
                   <div class="row">
                       <div class="col s12">
-                        <div class="btn btn-main-green">
-                            <span>Back</span>
-                        </div>
+
+                            <span><%= link_to 'Back', module_ts_path, class: 'btn btn-main-green' %></span>
+                        
 
                         <%= f.submit :Upload, class: 'btn btn-main-green' %>
                         </div>
@@ -61,5 +61,5 @@
   </div>
 <% end %>
 
-<%= link_to 'Show', @module_t %> |
-<%= link_to 'Back', module_ts_path %>
+
+

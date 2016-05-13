@@ -1,29 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>File name:</strong>
-  <%= @module_t.file_file_name %>
-</p>
+<br>
+<br>
+<br>
+<center>
+          <div class="container card open-sans main-white">
+            <div class="card-content">
+              <span class="card-title activator main-green-text"><%= @module_t.file_file_name %></i></span>
+                <div class="row"><br>
+					  <strong><b>Subject:</b></strong>
+					  <%= @module_t.subject %><br><br>
+					    <strong><b>Upload date:</b></strong>
+  						<%= @module_t.upload_date %><br><br>
+  						  <b>Topic:</b>
+  						  <%= @module_t.topic %><br><br>
+  						  <b>Uploaded By:</b>
+  						  <%= @module_t.member_t.first_name %> <%=@module_t.member_t.middle_initial %> <%=@module_t.member_t.last_name %><br><br>
+  						  </div>
 
-<p>
-  <strong>Subject:</strong>
-  <%= @module_t.subject %>
-</p>
+  						  <div class="row">
+  						  <center>
+  						<%= link_to 'Download', @module_t.file.url(:original, false), :class => 'waves-effect waves-light btn btn-main-green', :target => "_blank" %>
+						<%= link_to 'Edit', edit_module_t_path(@module_t), :class => 'waves-effect waves-light btn btn-main-green' %> 
+						<%= link_to 'Back', module_ts_path, :class => 'waves-effect waves-light btn btn-main-green' %>
+					</center>
+                </div>
 
-<p>
-  <strong>Upload date:</strong>
-  <%= @module_t.upload_date %>
-</p>
-
-<p>
-  <strong>Topic:</strong>
-  <%= @module_t.topic %>
-</p>
+  						</div>
+  						  <!--buttons-->
+  						  
+              </form>
 
 
 
+            
+            
+          </div>
+        </center> 
 
 
-<%= link_to 'Download', @module_t.file.url(:original, false) %>
-<%= link_to 'Edit', edit_module_t_path(@module_t) %> |
-<%= link_to 'Back', module_ts_path %>
+
+
+
+
+
+

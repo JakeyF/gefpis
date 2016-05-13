@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Gefpis</title>
+  <title>Ateneo GEFPIS</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -40,7 +40,7 @@
           <%if current_member_t.membership == "Administration"%> <!--ACCESSIBILITY IF ADMIN-->
             <li><%= link_to "Modules", module_ts_path(), class: 'main-green-text'%></li>
             <li><%= link_to "Evaluations", evaluation_ts_path(), class: 'main-green-text'%></li>
-            <li><a class="dropdown-button main-green-text" href="#!" data-activates="dropdown2" data-beloworigin="true"><font size="4">&nbsp;Tutees</font><i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button main-green-text" href="#!" data-activates="dropdown2" data-beloworigin="true"><font size="5">&nbsp;Tutees</font><i class="material-icons right">arrow_drop_down</i></a></li>
             <li><%= link_to "Members", member_ts_path(), class: 'main-green-text'%></li>  
           </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down open-sans">
@@ -51,10 +51,9 @@
 
             <%elsif current_member_t.membership == "Tutors"%> <!--ACCESSIBILITY IF TUTOR-->
             <ul id="nav-mobile" class="left hide-on-med-and-down open-sans">
-            <li><%= image_tag("gabay-tbs-logo-white.png", height: '64', class: 'main-green')%></li>
             <li><%= link_to "Modules", module_ts_path(), class: 'main-green-text'%></li>
             <li><%= link_to "Evaluations", evaluation_ts_path(), class: 'main-green-text'%></li>
-            <li><a class="dropdown-button main-green-text" href="#!" data-activates="dropdown2" data-beloworigin="true"><font size="4">&nbsp;Tutees</font><i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button main-green-text" href="#!" data-activates="dropdown2" data-beloworigin="true"><font size="5">&nbsp;Tutees</font><i class="material-icons right">arrow_drop_down</i></a></li>
           </ul>
           <ul id="nav-mobile" class="right hide-on-med-and-down open-sans">
             <li>
@@ -64,7 +63,7 @@
 
             <%end%> 
 
-            <li><a class="dropdown-button main-green-text" href="#!" data-activates="dropdown1" data-below-origin="true"><%= current_member_t.first_name%><i class="material-icons right">arrow_drop_down</i></a></li>
+            <li><a class="dropdown-button main-green-text" href="#!" data-activates="dropdown1" data-below-origin="true">Hello, <%= current_member_t.first_name%>!<i class="material-icons right">arrow_drop_down</i></a></li>
           </ul>
 
           <%else%>

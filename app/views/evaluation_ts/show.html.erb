@@ -1,44 +1,71 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Eval name:</strong>
-  <%= @evaluation_t.eval_name %>
-</p>
 
-<p>
-  <strong>Member t:</strong>
-  <%= @evaluation_t.member_t_id %>
-</p>
+<br>
+<center>
+          <div class="container card open-sans main-white">
+            <div class="card-content">
+              <span class="card-title activator main-green-text"><%= @evaluation_t.eval_name %></i></span>
+                <div class="row"><br>
+                    <b>Created By:</b>
+                    <%= @evaluation_t.member_t.first_name %> <%= @evaluation_t.member_t.middle_initial %> <%= @evaluation_t.member_t.last_name %><br><br>
+                    <b>Date & Time of Upload:</b> <%= @evaluation_t.evaldatetime %>
+                    <br><br><br><br>
+                    <b>TUTORING COMMENTS</b><br><br>
+                      <b>Kamusta ang ERYA ngayong week?</b><br>
+                      <%= @evaluation_t.tutoring_comments %><br><br><br>
+                      <b>MATH MODULES </b><br><br>
+                      <b>Kamusta ang Math module ng kid mo ngayong week?</b><br>
+                      <%= @evaluation_t.math_module_comments %><br><br>
+                      <b>Eh yung seatwork?</b><br>
+                      <%= @evaluation_t.math_sw_comments %><br><br>
+                      <br>
+                      <b>ENGLISH MODULES</b><br><br>
+                        <b>Kamusta ang English module ng kid mo ngayong week?</b><br>
+                        <%= @evaluation_t.eng_comments %><br><br>
+                        <b>Eh yung seatwork?</b><br>
+                        <%= @evaluation_t.eng_sw_comments %><br><br><br>
+                        <b>SUGGESTIONS AND SHARING OF EXPERIENCES</b><br><br>
+                           <b>May suggestions ka ba para sa susunod na Erya?/May gusto ka bang i-share tungkol sa Erya experience mo?</b><br>
+                          <%= @evaluation_t.suggestions %><br><br><br>
+          
 
-<p>
-  <strong>Tutoring comments:</strong>
-  <%= @evaluation_t.tutoring_comments %>
-</p>
+                
+      </div>
+    </div>
+  </div>
+                <br>
+                <!--buttons-->
+                <div class="row">
+                <center>
+            <%= link_to 'Edit', edit_evaluation_t_path(@evaluation_t), :class => 'waves-effect waves-light btn btn-main-green' %> 
+            <%= link_to 'Back', evaluation_ts_path, :class => 'waves-effect waves-light btn btn-main-green' %>
+          </center>
+        </div>
+              </form>
 
-<p>
-  <strong>Math module comments:</strong>
-  <%= @evaluation_t.math_module_comments %>
-</p>
 
-<p>
-  <strong>Math sw comments:</strong>
-  <%= @evaluation_t.math_sw_comments %>
-</p>
 
-<p>
-  <strong>Eng comments:</strong>
-  <%= @evaluation_t.eng_comments %>
-</p>
+            
+            
+          </div>
+        </center> 
 
-<p>
-  <strong>Eng sw comments:</strong>
-  <%= @evaluation_t.eng_sw_comments %>
-</p>
 
-<p>
-  <strong>Suggestions:</strong>
-  <%= @evaluation_t.suggestions %>
-</p>
 
-<%= link_to 'Edit', edit_evaluation_t_path(@evaluation_t) %> |
-<%= link_to 'Back', evaluation_ts_path %>
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+

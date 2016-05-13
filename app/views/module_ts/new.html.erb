@@ -34,7 +34,7 @@
                                <%= f.input :file, as: :file,:label_html => { :class => 'chicken_label_name' } %>
                             </div>
                             <div class="file-path-wrapper">
-                              <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                              <input class="file-path validate" type="text" placeholder="Upload file">
                             </div>
                           </div>
                         </form>  
@@ -47,16 +47,11 @@
                               <%= f.input :topic %>
                       </div>
 
-                      <div class="input-field col s12">
-                              <%= f.association :member_t %>
-                      </div>
+
                   </div>
                   <div class="row">
                       <div class="col s12">
-                        <div class="btn btn-main-green">
-                            <span>Back</span>
-                        </div>
-
+                       <span><%= link_to 'Back', module_ts_path, class: 'btn btn-main-green' %></span>
                         <%= f.submit :Upload, class: 'btn btn-main-green' %>
                         </div>
                       </div>
@@ -72,4 +67,4 @@
 <% end %>
 
 
-<%= link_to 'Back', module_ts_path %>
+

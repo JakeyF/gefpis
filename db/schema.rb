@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512092013) do
+ActiveRecord::Schema.define(version: 20160513000628) do
 
   create_table "evaluation_ts", force: :cascade do |t|
     t.string   "eval_name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160512092013) do
     t.string   "suggestions"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.datetime "evaldatetime"
   end
 
   create_table "evaluations", force: :cascade do |t|
@@ -32,8 +33,13 @@ ActiveRecord::Schema.define(version: 20160512092013) do
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "file_file_name"
   end
 
   create_table "member_ts", force: :cascade do |t|
@@ -41,21 +47,21 @@ ActiveRecord::Schema.define(version: 20160512092013) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "middle_initial"
-    t.integer  "contact_no"
+    t.integer  "contact_no",             limit: 8
     t.date     "attendance"
     t.string   "committee"
     t.date     "birthday"
     t.string   "year_course"
     t.string   "scholarship"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
     t.string   "membership"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                            default: "", null: false
+    t.string   "encrypted_password",               default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                    default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
